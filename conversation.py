@@ -28,8 +28,11 @@ def getConversation(conversation_id):
 
     params = {
         "query": f"conversation_id:{conversation_id}",
+        "expansions": "author_id",
         "tweet.fields": "in_reply_to_user_id",
         "tweet.fields": "conversation_id",
+        "tweet.fields": "author_id",
+        "user.fields": "username",
     }
 
     bearer_header = {

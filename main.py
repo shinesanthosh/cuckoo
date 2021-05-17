@@ -10,6 +10,13 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger()
 
 
+def search_user(users, id):
+    for i in users:
+        if i["id"] == id:
+            return i["username"]
+    return ""
+
+
 def check_mentions(api, twitter_handle, since_id):
     logger.info("Retrieving mentions")
     new_since_id = since_id
@@ -29,13 +36,14 @@ def check_mentions(api, twitter_handle, since_id):
 
         print("\n\nThe thread is following: \n")
         for i in thread["data"]:
-            print(f"{i['text']}\n\n")
+            un = search_user(thread["includes"]["users"], i["author_id"])
+            print(f"{un} : {i['text']}\n\n")
 
     return new_since_id
 
 
 def main():
-    t_handle = ""
+    t_handle = input("Enter your twitter handle: ")
     api = create_api()
     since_id = 1
     since_id = check_mentions(api, t_handle, since_id)
