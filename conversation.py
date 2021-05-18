@@ -1,3 +1,6 @@
+# Couldn't find a way to fetch threads using tweepy
+# So the requests to the api is send using the requests module
+
 import requests
 import os
 from dotenv import load_dotenv
@@ -7,7 +10,7 @@ load_dotenv()
 bearer_token = os.getenv("BEARER_TOKEN")
 consumer_key = os.getenv("API_KEY")
 
-
+# this function sends request to get the conversation_id of a tweet from its id
 def getConversationId(id):
     uri = "https://api.twitter.com/2/tweets?"
 
@@ -22,10 +25,16 @@ def getConversationId(id):
     return resp.json()["data"][0]["conversation_id"]
 
 
-# Returns a conversation from the v2 enpoint  of type [<original_tweet_text>, <[replies]>]
+# This function uses the conversation_id to get the thread or tweets that have the same conversation_id
 def getConversation(conversation_id):
     uri = "https://api.twitter.com/2/tweets/search/recent?"
-
+    
+    # A query to return the tweets that match the conversation id alongwith the fields exppected to be returned
+    # Details can be found at: 
+    # 
+    # https://developer.twitter.com/en/docs/twitter-api/tweets/search/api-reference/get-tweets-search-recent
+    # 
+    # 
     params = {
         "query": f"conversation_id:{conversation_id}",
         "expansions": "author_id",
@@ -43,6 +52,6 @@ def getConversation(conversation_id):
     resp = requests.get(uri, headers=bearer_header, params=params)
     return resp.json()
 
-
+# this function combines the above functions and directly returns the thread from the tweet id
 def getThread(id):
     return getConversation(getConversationId(id))

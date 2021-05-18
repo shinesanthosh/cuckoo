@@ -1,10 +1,13 @@
+# This module deals with creation of api object for tweepy using the api keys
+
 import tweepy
 import logging
 import os
 
 logger = logging.getLogger()
 
-
+# This function creates & returns an api object from the api keys stored in environment variables
+#  and it also verifies the credentials
 def create_api():
     consumer_key = os.getenv("API_KEY")
     consumer_secret = os.getenv("API_SECRET")
