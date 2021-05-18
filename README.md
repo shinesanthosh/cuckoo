@@ -17,7 +17,7 @@ Mention her in the thread which you want to save, comeback and log in to the cuc
 - Cuckoo is built using python and tweepy
 - Install the required packages and run thread_fetch.py
 - Make sure you have twitter developer account
-- Make sure to set the [environment variables](https://github.com/shinesanthosh/cuckoo/#environment)
+- Make sure to set the [environment variables](#environment)
 - thread_fetch also has a function writeThread, which can be called by passing in the twitter handle, it'll write the thread to a text file
 
 ### Environment
