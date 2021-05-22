@@ -37,6 +37,7 @@ def getConversation(conversation_id):
     # 
     params = {
         "query": f"conversation_id:{conversation_id}",
+        "max_results":100,
         "expansions": "author_id",
         "tweet.fields": "in_reply_to_user_id",
         "tweet.fields": "conversation_id",
