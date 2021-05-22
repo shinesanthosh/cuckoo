@@ -14,6 +14,9 @@ from conversation import getThread
 # this function will send dms
 from dm import send_dem
 
+# These functions acces the replit db
+from db_handler import setid, getid
+
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger()
 
@@ -29,13 +32,12 @@ def search_user(users, id):
 def check_mentions(api, since_id):
 
     # this offset is used to prevent sending dms to very old mentions
-    id_offset = os.getenv("ID_OFFSET")
+    id_offset = int(os.getenv("ID_OFFSET"))
 
     logger.info("Retrieving mentions")
     new_since_id = since_id
-    
-    since_id = since_id if since_id > id_offset else id_offset
 
+    since_id = since_id if since_id > id_offset else id_offset
 
     # mentions are retrieved from the mentions timeline of the twitter api using tweepy
     # for each mention we check for a thread i.e checks with its conversation id if it has any replies
@@ -92,14 +94,17 @@ def main():
 
         # The last_id.txt will store the last mention id
         # so that even after a crash the bot won't send previosly sent messages again
-        with open("last_id.txt", "r") as f:
-            since_id = f.read()
+        # with open("last_id.txt", "r") as f:
+        #     since_id =
+
+        since_id = int(getid())
 
         since_id = check_mentions(api, since_id)
-        
-        with open("last_id.txt", "w") as f:
-            f.write(str(since_id))
-        
+
+        # with open("last_id.txt", "w") as f:
+        #     f.write(str(since_id))
+        setid(str(since_id))
+
         # Wait for 1 min before checking for next mention
         time.sleep(60)
 
