@@ -7,7 +7,7 @@ import logging
 from config import create_api
 
 # getThread in conversation returns the thread with the id of tweet where the bot is mentioned
-from conversation import getThread
+from conversation import getThread, getConversationId
 
 
 logging.basicConfig(level=logging.INFO)
@@ -58,6 +58,10 @@ def check_mentions(api, twitter_handle, since_id):
         # If there is one or more replies, write it to the file
         f.write("\n\nThe thread is following: \n")
 
+        # Add to the file, the first tweet which started the thread
+        t_str = getStatus(api, [int(getConversationId(tweet.id))])
+        f.write(f"->{t_str}\n\n")
+
         # the thread details are stored in "data"
         for i in reversed(thread["data"]):
 
@@ -81,6 +85,11 @@ def writeThread(t_handle):
     api = create_api()
     since_id = 1
     since_id = check_mentions(api, t_handle, since_id)
+
+
+def getStatus(api, id):
+    resp = api.statuses_lookup(id)
+    return f"{resp[0].user.screen_name} : {resp[0].text}"
 
 
 def main():
