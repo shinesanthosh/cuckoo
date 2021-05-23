@@ -68,7 +68,7 @@ def check_mentions(api, since_id):
         thr_string += "\n\nThe thread is following: \n"
 
         # add the first tweet which started the thread, to the string
-        getStatus(api, [int(getConversationId(tweet.id))])
+        thr_string += getStatus(api, [int(getConversationId(tweet.id))])
 
         # the thread details are stored in "data"
         for i in reversed(thread["data"]):
@@ -91,7 +91,7 @@ def check_mentions(api, since_id):
 # This function returns a tweet from it's id
 def getStatus(api, id):
     resp = api.statuses_lookup(id)
-    return f"{resp[0].user.screen_name} : {resp[0].text}"
+    return f"{resp[0].user.screen_name} : {resp[0].text}\n\n"
 
 
 # The main function
