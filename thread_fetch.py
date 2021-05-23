@@ -59,7 +59,7 @@ def check_mentions(api, twitter_handle, since_id):
         f.write("\n\nThe thread is following: \n")
 
         # the thread details are stored in "data"
-        for i in thread["data"]:
+        for i in reversed(thread["data"]):
 
             # the "data" only has "tweet id", "tweet text", and "author id"
             # we have to find username by using the author id from the list "users" in "includes"
