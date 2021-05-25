@@ -50,3 +50,53 @@ BFH/recyBx9eaZvAwGquP/2021
 
 - Cuckoo is built using python and tweepy
 - Install the required packages and run main.py
+- Make sure you have twitter developer account
+- Make sure to set the [environment variables](#environment)
+- The main function checks for mentions every minute
+- The thread_fetch function can be used to import mentions and threads to other python files
+- thread_fetch also has a function writeThread, which can be called by passing in the twitter handle, it'll write the thread to a text file
+
+## How to run
+
+- Install the requirements
+- Set the [environment variables](#environment)
+- Run main.py
+
+## How it works
+
+- The bot uses the mentions timeline endpoint provided by the twitter API to fetch mentions
+- The conversation id is retrieved from the mentions
+- Using the conversation id the thread is fetched
+- Then the thread is sent through DM
+
+### Environment
+
+- The following environment variables must be set beforehand if you want to run cuckoo on your machine:
+  - API_KEY : Your twitter dev account api key
+  - API_SECRET: Your twitter dev account api secret
+  - BEARER_TOKEN: Your BearerToken
+  - ACCESS_TOKEN: Your app's access token
+  - ACCESS_TOKEN_SECRET: Your app's access token secret
+  - ID_OFFSET : Set a tweet id here, any mention before that will not be considered
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
