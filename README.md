@@ -24,7 +24,7 @@ BFH/recyBx9eaZvAwGquP/2021
 
 ## Product walkthrough
 
-[Product walkthrough]()
+[Product walkthrough](https://www.youtube.com/watch?v=GfvWctqfKwc)
 
 ## Deployed code (How to use)
 
