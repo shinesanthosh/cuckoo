@@ -44,7 +44,7 @@ BFH/recyBx9eaZvAwGquP/2021
 - python-dotenv - 0.17.1
 - replit - 3.1.0
 
-> Check requirements.txt for details
+> Check [requirements.txt](./blob/main/requirements.txt) for details
 
 ## Deploying cuckoo (How to configure)
 
