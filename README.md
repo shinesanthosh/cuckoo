@@ -52,6 +52,7 @@ BFH/recyBx9eaZvAwGquP/2021
 - Install the required packages and run main.py
 - Make sure you have twitter developer account
 - Make sure to set the [environment variables](#environment)
+- This bot uses replit db to keep track fo mentions. Make sure to create a key in replit db as described in [How to run](#how-to-run)
 - The main function checks for mentions every minute
 - The thread_fetch function can be used to import mentions and threads to other python files
 - thread_fetch also has a function writeThread, which can be called by passing in the twitter handle, it'll write the thread to a text file
@@ -60,6 +61,7 @@ BFH/recyBx9eaZvAwGquP/2021
 
 - Install the requirements
 - Set the [environment variables](#environment)
+- Create a replit db item with key `last_id` and set value to 1
 - Run main.py
 
 ## How it works
