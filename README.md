@@ -28,11 +28,8 @@ BFH/recyBx9eaZvAwGquP/2021
 
 ## Deployed code (How to use)
 
-✨ Cuckoo is currently hosted on repl.it
+> Cuckoo is not currently hosted anywhere
 
-✨ Mention `@ShineSanthosh2` in any thread to get the thread as a DM
-
-> The current refresh time is set to 1 minute. But the DM may take upto 5 Minutes to reach the end user
 
 ## The web console repo
 
@@ -82,6 +79,22 @@ BFH/recyBx9eaZvAwGquP/2021
   - ID_OFFSET : Set a tweet id here, any mention before that will not be considered
 
 
+## Commiting to the repo
+
+Do you love this project? 😄
+
+You think it has some bugs and know how to fix it? 😮
+
+Or, you think this can be improved? 🤔
+
+You're always welcome to fork, commit and send a pull request 😊
+
+Any pull request, which helps to:
+
+- Fix bugs
+- Add more features
+
+will be merged after reviews and conflict inspection from other contributors
 
 
 
